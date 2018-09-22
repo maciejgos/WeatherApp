@@ -5,8 +5,6 @@ namespace WeatherApp.Application.Navigation.Controls
 {
     public class WeatherAppNavigationPage : NavigationPage
     {
-        public WeatherAppNavigationPage()
-        {
-        }
+        public WeatherAppNavigationPage(Page page) : base(page) { }
     }
 }
