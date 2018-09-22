@@ -95,6 +95,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Initializers\PlatformInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -160,5 +161,8 @@
       <Project>{1317ED49-0F2D-4133-8C21-E11E4CE0E598}</Project>
       <Name>WeatherApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Initializers\" />
   </ItemGroup>
 </Project>

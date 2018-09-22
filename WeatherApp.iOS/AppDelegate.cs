@@ -24,7 +24,7 @@ namespace WeatherApp.iOS
         {
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new Initializers.PlatformInitializer()));
 
             return base.FinishedLaunching(app, options);
         }
