@@ -141,6 +141,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Local.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Local.imageset\baseline_my_location_black_24pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\Local.imageset\baseline_my_location_black_24pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Local.imageset\baseline_my_location_black_24pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -164,5 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Initializers\" />
+    <Folder Include="Assets.xcassets\Local.imageset\" />
   </ItemGroup>
 </Project>
