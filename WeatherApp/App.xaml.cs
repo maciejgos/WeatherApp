@@ -19,6 +19,8 @@ namespace WeatherApp
         protected override void OnInitialized()
         {
             InitializeComponent();
+
+            NavigationService.NavigateAsync(new Uri("/WeatherAppTabbedPage?selectedTab=LocalWeatherPage", UriKind.Absolute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
