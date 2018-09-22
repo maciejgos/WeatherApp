@@ -1,32 +1,28 @@
 ﻿using System;
+using Prism;
+using Prism.Ioc;
+using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace WeatherApp
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        // Default constructor required by XAML Preview
+        public App(){}
+
+        public App(IPlatformInitializer initializer) : base(initializer) { }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
-
-            //MainPage = new MainPage();
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // Handle when your app starts
-        }
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
         }
     }
 }
