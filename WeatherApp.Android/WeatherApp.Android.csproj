@@ -83,6 +83,23 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\baseline_favorite_24.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\favorites_18.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\favorites_24.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\favorites_36.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\favorites_48.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_favorite_black_18.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_favorite_black_24.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_favorite_black_36.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline_favorite_black_48.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_favorite_black_18.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_favorite_black_24.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_favorite_black_36.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_favorite_black_48.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_favorite_black_18.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_favorite_black_24.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_favorite_black_36.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_favorite_black_48.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
