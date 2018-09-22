@@ -27,5 +27,8 @@
     <Folder Include="Features\Settings\Views\" />
     <Folder Include="Features\Settings\ViewModels\" />
     <Folder Include="Features\Settings\Models\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\Navigation\" />
+    <Folder Include="Application\Navigation\Controls\" />
   </ItemGroup>
 </Project>
