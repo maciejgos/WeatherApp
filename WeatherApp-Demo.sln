@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.UITests", "Weath
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{1317ED49-0F2D-4133-8C21-E11E4CE0E598}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Integration.Tests", "WeatherApp.Integration.Tests\WeatherApp.Integration.Tests.csproj", "{C867055F-16E8-497B-BECC-1B9016EF293B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,5 +87,21 @@ Global
 		{1317ED49-0F2D-4133-8C21-E11E4CE0E598}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
 		{1317ED49-0F2D-4133-8C21-E11E4CE0E598}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
 		{1317ED49-0F2D-4133-8C21-E11E4CE0E598}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Release|iPhone.Build.0 = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{C867055F-16E8-497B-BECC-1B9016EF293B}.AppStore|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
