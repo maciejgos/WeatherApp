@@ -26,6 +26,7 @@ namespace WeatherApp.UITests
         }
 
         [Test]
+        [Ignore("Do not execute")]
         public void WelcomeTextIsDisplayed()
         {
             AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
