@@ -4,8 +4,17 @@
              x:Class="WeatherApp.Features.Local.Views.LocalWeatherPage"
              Title="Warszawa">
     <ContentPage.Content>
-        <Label Text="Local Weather Page"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center"/>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     Margin="20">
+            <Entry Placeholder="Type your city"
+                   Text="{Binding City}" />
+            <Button Text="Get current weather"
+                    Command="GetCurrentWeatherCommand"/>
+            <BoxView HeightRequest="1" 
+                     Color="Silver"
+                     Margin="0,0,0,10"/>
+            <Label Text="{Binding Temp}"
+               HorizontalTextAlignment="Center"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
