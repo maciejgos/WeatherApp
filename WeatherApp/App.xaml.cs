@@ -3,7 +3,8 @@ using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using WeatherApp.Application.Navigation.Controls;
-using Xamarin.Forms;
+using WeatherApp.Features.Local.ViewModels;
+using WeatherApp.Features.Local.Views;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -27,6 +28,8 @@ namespace WeatherApp
         {
             containerRegistry.RegisterForNavigation<WeatherAppNavigationPage>();
             containerRegistry.RegisterForNavigation<WeatherAppTabbedPage>();
+
+            containerRegistry.RegisterForNavigation<LocalWeatherPage, LocalWeatherPageViewModel>();
         }
     }
 }
