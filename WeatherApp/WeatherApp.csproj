@@ -32,5 +32,7 @@
     <Folder Include="Application\Navigation\" />
     <Folder Include="Application\Navigation\Controls\" />
     <Folder Include="Application\Dtos\" />
+    <Folder Include="Application\Networking\" />
+    <Folder Include="Application\Extensions\" />
   </ItemGroup>
 </Project>

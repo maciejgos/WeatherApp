@@ -3,6 +3,7 @@ using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using WeatherApp.Application.Navigation.Controls;
+using WeatherApp.Application.Networking;
 using WeatherApp.Features.Local.ViewModels;
 using WeatherApp.Features.Local.Views;
 using Xamarin.Forms.Xaml;
@@ -26,6 +27,8 @@ namespace WeatherApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
+
             containerRegistry.RegisterForNavigation<WeatherAppNavigationPage>();
             containerRegistry.RegisterForNavigation<WeatherAppTabbedPage>();
 

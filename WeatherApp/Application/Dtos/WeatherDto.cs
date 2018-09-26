@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
+using WeatherApp.Features.Local.Models;
 
 namespace WeatherApp.Application.Dtos
 {
@@ -81,7 +82,7 @@ namespace WeatherApp.Application.Dtos
         public int Sunset { get; set; }
     }
 
-    public class WeatherDto
+    public class WeatherDto : BaseDto
     {
         [JsonProperty("coord")]
         public Coord Coord { get; set; }
@@ -118,8 +119,17 @@ namespace WeatherApp.Application.Dtos
 
         [JsonProperty("cod")]
         public int Cod { get; set; }
+
+        public override T MapToModel<T>()
+        {
+            T result = new T();
+
+            if (result is CurrentWeatherModel)
+            {
+                ((CurrentWeatherModel)(object)result).Temperature = Main.Temp;
+            }
+
+            return result;
+        }
     }
-
-
-
 }
