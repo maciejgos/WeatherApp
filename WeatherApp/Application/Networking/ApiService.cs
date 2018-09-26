@@ -7,12 +7,19 @@ namespace WeatherApp.Application.Networking
 {
     public class ApiService : IApiService
     {
+        readonly HttpClient httpClient;
+
+        public ApiService()
+        {
+            HttpClientHandler handler = new HttpClientHandler();
+            httpClient = new HttpClient(handler)
+            {
+                BaseAddress = new Uri(Constants.BaseUrl)
+            };
+        }
 
         public async Task<HttpResponseMessage> GetCurrentWeatherAsync(string city)
         {
-            HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri(Constants.BaseUrl);
-
             HttpResponseMessage response = await httpClient.GetAsync(new Uri($"/data/2.5/weather?q={city}&units=metric&APPID={Constants.AppID}", UriKind.Relative));
             if (response.IsSuccessStatusCode)
             {

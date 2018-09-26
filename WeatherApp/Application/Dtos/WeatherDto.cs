@@ -126,7 +126,7 @@ namespace WeatherApp.Application.Dtos
 
             if (result is CurrentWeatherModel)
             {
-                ((CurrentWeatherModel)(object)result).Temperature = Main.Temp;
+                ((CurrentWeatherModel)(object)result).Temperature = Main == null ? -1000.0d : Main.Temp;
             }
 
             return result;
