@@ -3,7 +3,7 @@
     public static class AppSettings
     {
         // Open Weather Endpoints
-        const string defaultEndpoint = "https://api.openweathermap.org";
+        const string defaultEndpoint = "https://api.openweathermap.org/data/2.5/";
         const string defaultApiKey = "{YOUR_API_KEY}";
 
         // App Center
@@ -14,7 +14,7 @@
         const bool defaultUseMocks = true;
 
         // Metric format
-        const string defaultWeatherFormat = "metric";
+        const string defaultWeatherUnits = "metric";
 
         public static string WeatherEndpoint => defaultEndpoint;
         public static string WeatherApiKey => defaultApiKey;
@@ -24,6 +24,6 @@
 
         public static bool UseMocks => defaultUseMocks;
 
-        public static string WeatherFormat => defaultWeatherFormat;
+        public static string WeatherUnits => defaultWeatherUnits;
     }
 }
