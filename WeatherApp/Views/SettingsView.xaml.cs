@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace WeatherApp.Features.Local.Views
+namespace WeatherApp.Views
 {
-    public partial class LocalWeatherPage : ContentPage
+    public partial class SettingsView : ContentPage
     {
-        public LocalWeatherPage()
+        public SettingsView()
         {
             InitializeComponent();
         }

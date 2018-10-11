@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace WeatherApp.Features.Favorites.Views
+namespace WeatherApp.Views
 {
-    public partial class FavoritesPage : ContentPage
+    public partial class LocalWeatherView : ContentPage
     {
-        public FavoritesPage()
+        public LocalWeatherView()
         {
             InitializeComponent();
         }

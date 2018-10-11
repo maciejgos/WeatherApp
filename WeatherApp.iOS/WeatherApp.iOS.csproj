@@ -95,7 +95,6 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Initializers\PlatformInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -163,9 +162,6 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
     <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.7" />
-    <PackageReference Include="Prism.Unity.Forms">
-      <Version>7.0.0.396</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -175,7 +171,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Initializers\" />
     <Folder Include="Assets.xcassets\Local.imageset\" />
     <Folder Include="Assets.xcassets\Favorites.imageset\" />
     <Folder Include="Assets.xcassets\Settings.imageset\" />

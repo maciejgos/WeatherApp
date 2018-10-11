@@ -11,28 +11,15 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
-    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Features\Local\" />
-    <Folder Include="Features\Favorites\" />
-    <Folder Include="Features\Settings\" />
-    <Folder Include="Features\Local\Views\" />
-    <Folder Include="Features\Local\ViewModels\" />
-    <Folder Include="Features\Local\Models\" />
-    <Folder Include="Features\Favorites\Views\" />
-    <Folder Include="Features\Favorites\ViewModels\" />
-    <Folder Include="Features\Favorites\Models\" />
-    <Folder Include="Features\Settings\Views\" />
-    <Folder Include="Features\Settings\ViewModels\" />
-    <Folder Include="Features\Settings\Models\" />
-    <Folder Include="Application\" />
-    <Folder Include="Application\Navigation\" />
-    <Folder Include="Application\Navigation\Controls\" />
-    <Folder Include="Application\Dtos\" />
-    <Folder Include="Application\Networking\" />
-    <Folder Include="Application\Extensions\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Features\Favorites\Views\FavoritesPage.xaml.cs" />
   </ItemGroup>
 </Project>
