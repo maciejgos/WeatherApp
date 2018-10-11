@@ -21,6 +21,7 @@ namespace WeatherApp.ViewModels
             else
             {
                 containerBuilder.RegisterType<WeatherApiService>().As<IWeatherApiService>();
+                containerBuilder.RegisterType<RequestService>().As<IRequestService>();
             }
 
             containerBuilder.RegisterType<LocalWeatherViewModel>();

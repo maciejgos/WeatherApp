@@ -10,34 +10,19 @@ namespace WeatherApp.Services
 {
     public class WeatherApiService : IWeatherApiService
     {
-        public async Task<WeatherModel> GetCurrentAsync(string city)
+        readonly IRequestService requestService;
+
+        public WeatherApiService(IRequestService requestService)
         {
-            var httpClient = CreateHttpClient();
-            var uri = CreateUri(city);
-            var response = await httpClient.GetAsync(uri);
-
-            await HandleResponse(response);
-
-            var serialized = await response.Content.ReadAsStringAsync();
-            var result = await Task.Run(() => JsonConvert.DeserializeObject<WeatherModel>(serialized));
-
-            return result;
+            this.requestService = requestService;
         }
 
-        private async Task HandleResponse(HttpResponseMessage response)
+        public async Task<WeatherModel> GetCurrentAsync(string city)
         {
-            if (response.IsSuccessStatusCode)
-            {
-                return;
-            }
+            var uri = CreateUri(city);
+            var currentWeather = await requestService.GetAsync<WeatherModel>(uri.ToString());
 
-            var content = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-            {
-                throw new Exception(content);
-            }
-
-            throw new HttpRequestException(content);
+            return currentWeather;
         }
 
         private Uri CreateUri(string city)
@@ -53,13 +38,6 @@ namespace WeatherApp.Services
             return uri;
         }
 
-        private HttpClient CreateHttpClient()
-        {
-            var httpClient = new HttpClient();
 
-            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            return httpClient;
-        }
     }
 }
