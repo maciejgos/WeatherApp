@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
     public interface IWeatherApiService
     {
-        Task<T> GetData<T>(string uri);
+        Task<WeatherModel> GetCurrentAsync(string city);
     }
 }

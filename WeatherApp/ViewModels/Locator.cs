@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
@@ -12,6 +13,15 @@ namespace WeatherApp.ViewModels
         public Locator()
         {
             containerBuilder = new ContainerBuilder();
+
+            if (AppSettings.UseMocks)
+            {
+                containerBuilder.RegisterType<MockWeatherApiService>().As<IWeatherApiService>();
+            }
+            else
+            {
+                containerBuilder.RegisterType<WeatherApiService>().As<IWeatherApiService>();
+            }
 
             containerBuilder.RegisterType<LocalWeatherViewModel>();
         }

@@ -11,7 +11,7 @@
         const string defaultAppCenterAndroid = "";
 
         // Fake
-        const bool defaultUseMocks = false;
+        const bool defaultUseMocks = true;
 
         // Metric format
         const string defaultWeatherFormat = "metric";

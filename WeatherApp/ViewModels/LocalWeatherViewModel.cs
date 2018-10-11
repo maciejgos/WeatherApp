@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using WeatherApp.Models;
@@ -10,38 +11,49 @@ namespace WeatherApp.ViewModels
     {
         IWeatherApiService weatherApi;
 
+        string city;
+        string weather;
+        int temp;
+
         public string City
         {
-            get => "Pruszków";
+            get => city;
+            set => SetProperty(ref city, value);
         }
 
         public string Weather
         {
-            get => "Słonecznie";
+            get => weather;
+            set => SetProperty(ref weather, value);
         }
 
-        public string Temp
+        public int Temp
         {
-            get => "20,5";
+            get => temp;
+            set => SetProperty(ref temp, value);
         }
 
-        public LocalWeatherViewModel()
+        public LocalWeatherViewModel(IWeatherApiService weatherApi)
         {
             Title = "Home";
             Icon = "";
+
+            this.weatherApi = weatherApi;
 
             Task.WhenAll(InitializeAsync());
         }
 
         public async Task InitializeAsync()
         {
-            weatherApi = new WeatherApiService();
-
             try
             {
                 IsBusy = true;
 
-                WeatherModel weather = await weatherApi.GetData<WeatherModel>(string.Format(Endpoints.CurrentWeatherEndpoint,"Pruszków", AppSettings.WeatherFormat));
+                WeatherModel weatherData = await weatherApi.GetCurrentAsync(city: "Pruszków");
+
+                City = weatherData.Name;
+                Weather = weatherData.Weather.FirstOrDefault().Description;
+                Temp = weatherData.Main.Temp;
             }
             catch
             {
