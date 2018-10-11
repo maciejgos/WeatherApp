@@ -41,7 +41,7 @@ namespace WeatherApp.ViewModels
             {
                 IsBusy = true;
 
-                Weather weather = await weatherApi.GetWeatherAsync(city: "Pruszków");
+                WeatherModel weather = await weatherApi.GetWeatherAsync(city: "Pruszków");
             }
             catch
             {
