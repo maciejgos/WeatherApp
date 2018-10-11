@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WeatherApp.ViewModels;
+﻿using WeatherApp.ViewModels;
 using Xamarin.Forms;
 
 namespace WeatherApp.Views
@@ -11,7 +9,7 @@ namespace WeatherApp.Views
         {
             InitializeComponent();
 
-            BindingContext = new LocalWeatherViewModel();
+            BindingContext = Locator.Instance.Resolve<LocalWeatherViewModel>();
         }
     }
 }

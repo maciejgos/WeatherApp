@@ -1,4 +1,6 @@
-﻿using WeatherApp.Views;
+﻿using System;
+using WeatherApp.ViewModels;
+using WeatherApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +12,14 @@ namespace WeatherApp
         public App()
         {
             InitializeComponent();
+            BuildDependencies();
 
             MainPage = new MainView();
+        }
+
+        public void BuildDependencies()
+        {
+            Locator.Instance.Build();
         }
     }
 }
