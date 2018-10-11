@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -40,16 +42,20 @@ namespace WeatherApp.Services
 
         private Uri CreateUri(string city)
         {
-            //UriBuilder
-            return new Uri(string.Concat(Endpoints.CurrentWeatherEndpoint, $"?q={city}", $"&units={AppSettings.WeatherUnits}", $"&appid={AppSettings.WeatherApiKey}"), UriKind.Relative);
+            UriBuilder uriBuilder = new UriBuilder(AppSettings.WeatherEndpoint);
+            uriBuilder.Path = Path.Combine(uriBuilder.Path, Endpoints.CurrentWeatherEndpoint);
+            uriBuilder.Query = string.Concat($"?q={city}", $"&units={AppSettings.WeatherUnits}", $"&appid={AppSettings.WeatherApiKey}");
+
+            var uri = uriBuilder.Uri;
+
+            Debug.WriteLine(uri.ToString());
+
+            return uri;
         }
 
         private HttpClient CreateHttpClient()
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri(AppSettings.WeatherEndpoint)
-            };
+            var httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
