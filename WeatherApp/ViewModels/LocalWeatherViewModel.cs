@@ -21,7 +21,7 @@ namespace WeatherApp.ViewModels
             set => SetProperty(ref city, value);
         }
 
-        public string Weather
+        public string Description
         {
             get => weather;
             set => SetProperty(ref weather, value);
@@ -52,7 +52,7 @@ namespace WeatherApp.ViewModels
                 WeatherModel weatherData = await weatherApi.GetCurrentAsync(city: "Pruszków");
 
                 City = weatherData.Name;
-                Weather = weatherData.Weather.FirstOrDefault().Description;
+                Description = weatherData.Weather.FirstOrDefault().Description;
                 Temp = weatherData.Main.Temp;
             }
             catch

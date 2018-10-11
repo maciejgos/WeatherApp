@@ -18,7 +18,7 @@
                        FontSize="Medium"
                        HorizontalOptions="FillAndExpand"
                        HorizontalTextAlignment="Center" />
-                <Label Text="{Binding Weather}"
+                <Label Text="{Binding Description}"
                        FontSize="Small"
                        HorizontalOptions="FillAndExpand"
                        HorizontalTextAlignment="Center" />
