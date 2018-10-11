@@ -1,11 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using WeatherApp.Models;
+﻿using System.Threading.Tasks;
 
 namespace WeatherApp.Services
 {
     public interface IWeatherApiService
     {
-        Task<WeatherModel> GetWeatherAsync(string city);
+        Task<T> GetData<T>(string uri);
     }
 }

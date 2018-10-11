@@ -6,7 +6,7 @@ namespace WeatherApp.Services
 {
     public class WeatherApiService : IWeatherApiService
     {
-        public Task<WeatherModel> GetWeatherAsync(string city)
+        public Task<T> GetData<T>(string uri)
         {
             throw new NotImplementedException();
         }
