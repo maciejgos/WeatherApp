@@ -1,8 +1,19 @@
 ﻿namespace WeatherApp
 {
-    public class AppSettings
+    public static class AppSettings
     {
-        public const string BaseUrl = "https://api.openweathermap.org";
-        public const string AppID = "{YOUR_API_KEY}";
+        // Open Weather Endpoints
+        const string defaultEndpoint = "https://api.openweathermap.org";
+        const string apiKey = "{YOUR_API_KEY}";
+
+        // App Center
+        const string defaultAppCenteriOS = "";
+        const string defaultAppCenterAndroid = "";
+
+        public static string WeatherEndpoint => defaultEndpoint;
+        public static string WeatherApiKey => apiKey;
+
+        public static string AppCenteriOSApiKey => defaultAppCenteriOS;
+        public static string AppCenterAndroidApiKey => defaultAppCenterAndroid;
     }
 }
