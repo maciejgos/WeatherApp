@@ -20,6 +20,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Models\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Favorites\Views\FavoritesPage.xaml.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using WeatherApp.Exceptions;
 using WeatherApp.Models;
 
 namespace WeatherApp.Services
@@ -18,7 +19,15 @@ namespace WeatherApp.Services
 
         public async Task<OperationResult<WeatherModel>> GetCurrentWeatherAsync(string city)
         {
-            OperationResult<WeatherModel> operationResult = OperationResult<WeatherModel>.CreateSuccessResult(result: weatherModel);
+            OperationResult<WeatherModel> operationResult = null;
+            if (city == "NetworkConnectivity")
+            {
+                operationResult = OperationResult<WeatherModel>.CreateFailResult(exception: new ConnectivityException());
+            }
+            else
+            {
+                operationResult = OperationResult<WeatherModel>.CreateSuccessResult(result: weatherModel);
+            }
 
             await Task.Delay(1000);
 
