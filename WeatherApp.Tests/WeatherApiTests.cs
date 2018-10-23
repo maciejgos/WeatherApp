@@ -13,14 +13,10 @@ namespace WeatherApp.Tests
         public async Task CanGetCurrentWeatherForLocation()
         {
             // Arrange
-            IWeatherService weatherService = null;
-            if (AppSettings.UseMocks)
-            {
-                weatherService = new MockWeatherService();
-            }
+            IApiManager apiManager = new ApiManager(new MockWeatherService());
 
             // Act
-            OperationResult<WeatherModel> operationResult = await weatherService.GetCurrentWeatherAsync(city: "Pruszków");
+            OperationResult<WeatherModel> operationResult = await apiManager.GetCurrentWeatherAsync(city: "Pruszków");
 
             // Assert
             Assert.True(operationResult.Success);
@@ -32,14 +28,10 @@ namespace WeatherApp.Tests
         public async Task ThrowsConnectivityExceptionIfNoNetwork()
         {
             // Arrange
-            IWeatherService weatherService = null;
-            if (AppSettings.UseMocks)
-            {
-                weatherService = new MockWeatherService();
-            }
+            IApiManager apiManager = new ApiManager(new MockWeatherService());
 
             // Act
-            OperationResult<WeatherModel> operationResult = await weatherService.GetCurrentWeatherAsync(city: "NetworkConnectivity");
+            OperationResult<WeatherModel> operationResult = await apiManager.GetCurrentWeatherAsync(city: "NetworkConnectivity");
 
             // Assert
             Assert.False(operationResult.Success);
