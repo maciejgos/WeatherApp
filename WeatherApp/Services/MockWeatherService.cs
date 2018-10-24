@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using WeatherApp.Exceptions;
 using WeatherApp.Models;
 
@@ -8,6 +10,7 @@ namespace WeatherApp.Services
     public class MockWeatherService : IWeatherService
     {
         readonly WeatherModel weatherModel;
+        readonly string json;
 
         public MockWeatherService()
         {
@@ -15,23 +18,26 @@ namespace WeatherApp.Services
             {
                 Name = "Pruszków"
             };
+
+            json = JsonConvert.SerializeObject(weatherModel);
         }
 
-        public async Task<OperationResult<WeatherModel>> GetCurrentWeatherAsync(string city)
+        public async Task<HttpResponseMessage> GetCurrentWeatherAsync(string city)
         {
-            OperationResult<WeatherModel> operationResult = null;
-            if (city == "NetworkConnectivity")
-            {
-                operationResult = OperationResult<WeatherModel>.CreateFailResult(exception: new ConnectivityException());
-            }
-            else
-            {
-                operationResult = OperationResult<WeatherModel>.CreateSuccessResult(result: weatherModel);
-            }
-
             await Task.Delay(1000);
 
-            return operationResult;
+            if (city == "NetworkConnectivity")
+            {
+                throw new ConnectivityException();
+            }
+
+            HttpResponseMessage httpResponse = new HttpResponseMessage
+            {
+                StatusCode = System.Net.HttpStatusCode.OK,
+                Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json")
+            };
+
+            return httpResponse;
         }
     }
 }
