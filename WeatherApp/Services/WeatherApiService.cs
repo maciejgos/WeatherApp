@@ -6,15 +6,18 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
+    [Obsolete]
     public class WeatherApiService : IWeatherApiService
     {
         readonly IRequestService requestService;
 
+        [Obsolete]
         public WeatherApiService(IRequestService requestService)
         {
             this.requestService = requestService;
         }
 
+        [Obsolete]
         public async Task<WeatherModel> GetCurrentAsync(string city)
         {
             var uri = CreateUri(city);

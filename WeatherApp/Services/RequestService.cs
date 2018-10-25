@@ -5,8 +5,10 @@ using Newtonsoft.Json;
 
 namespace WeatherApp.Services
 {
+    [Obsolete]
     public class RequestService : IRequestService
     {
+        [Obsolete]
         public async Task<TResult> GetAsync<TResult>(string uri)
         {
             var httpClient = CreateHttpClient();

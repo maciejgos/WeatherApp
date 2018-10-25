@@ -5,6 +5,7 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
+    [Obsolete]
     public class MockWeatherApiService : IWeatherApiService
     {
         static WeatherModel weatherModel = new WeatherModel
@@ -24,6 +25,7 @@ namespace WeatherApp.Services
             }
         };
 
+        [Obsolete]
         public async Task<WeatherModel> GetCurrentAsync(string city)
         {
             await Task.Delay(1000);
