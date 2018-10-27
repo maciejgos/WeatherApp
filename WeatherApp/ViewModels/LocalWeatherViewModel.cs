@@ -1,16 +1,15 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using MvvmHelpers;
+using WeatherApp.Exceptions;
 using WeatherApp.Models;
-using WeatherApp.Services;
+using WeatherApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels
 {
     public class LocalWeatherViewModel : BaseViewModel
     {
-        IWeatherApiService weatherApi;
-
         string city;
         string weather;
         int temp;
@@ -33,36 +32,47 @@ namespace WeatherApp.ViewModels
             set => SetProperty(ref temp, value);
         }
 
-        public LocalWeatherViewModel(IWeatherApiService weatherApi)
+        public LocalWeatherViewModel()
         {
             Title = "Home";
             Icon = "";
-
-            this.weatherApi = weatherApi;
 
             Task.WhenAll(InitializeAsync());
         }
 
         public async Task InitializeAsync()
         {
-            try
-            {
-                IsBusy = true;
+            IsBusy = true;
 
-                WeatherModel weatherData = await weatherApi.GetCurrentAsync(city: "Pruszków");
+            var operationResult = await  ApiManager.GetCurrentWeatherAsync(city: "Pruszków");
 
-                City = weatherData.Name;
-                Description = weatherData.Weather.FirstOrDefault().Description;
-                Temp = weatherData.Main.Temp;
-            }
-            catch
+            if (operationResult.Success)
             {
-                throw;
-            }
-            finally
-            {
+                BindData(operationResult.Result);
+
                 IsBusy = false;
             }
+            else
+            {
+                if (operationResult.Exception is ConnectivityException)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Brak połączenia z siecią", "Ok");
+                }
+                else
+                {
+                    // TODO: Handle exception in App Center
+                    Debug.WriteLine($"Error occur: {operationResult.Exception}");
+
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Wystąpił błąd. Spróbuj ponownie.", "Ok");
+                }
+            }
+        }
+
+        void BindData(WeatherModel result)
+        {
+            City = result.Name;
+            Description = result.Weather.FirstOrDefault().Description;
+            Temp = result.Main.Temp;
         }
     }
 }

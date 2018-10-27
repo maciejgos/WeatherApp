@@ -14,16 +14,7 @@ namespace WeatherApp.ViewModels
         {
             containerBuilder = new ContainerBuilder();
 
-            if (AppSettings.UseMocks)
-            {
-                containerBuilder.RegisterType<MockWeatherApiService>().As<IWeatherApiService>();
-            }
-            else
-            {
-                containerBuilder.RegisterType<WeatherApiService>().As<IWeatherApiService>();
-                containerBuilder.RegisterType<RequestService>().As<IRequestService>();
-            }
-
+            containerBuilder.RegisterType<ApiManager>().As<IApiManager>();
             containerBuilder.RegisterType<LocalWeatherViewModel>();
         }
 

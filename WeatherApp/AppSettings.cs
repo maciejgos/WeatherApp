@@ -4,7 +4,7 @@
     {
         // Open Weather Endpoints
         const string defaultEndpoint = "https://api.openweathermap.org/data/2.5";
-        const string defaultApiKey = "{YOUR_API_KEY}";
+        const string defaultApiKey = "0d039917e0d2820c0dc9ab4f95cf10d8";
 
         // App Center
         const string defaultAppCenteriOS = "";
