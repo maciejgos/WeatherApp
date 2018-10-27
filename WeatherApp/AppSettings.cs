@@ -3,7 +3,7 @@
     public static class AppSettings
     {
         // Open Weather Endpoints
-        const string defaultEndpoint = "https://api.openweathermap.org/data/2.5/";
+        const string defaultEndpoint = "https://api.openweathermap.org/data/2.5";
         const string defaultApiKey = "{YOUR_API_KEY}";
 
         // App Center

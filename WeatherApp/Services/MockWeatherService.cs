@@ -22,7 +22,7 @@ namespace WeatherApp.Services
             json = JsonConvert.SerializeObject(weatherModel);
         }
 
-        public async Task<HttpResponseMessage> GetCurrentWeatherAsync(string city)
+/*        public async Task<HttpResponseMessage> GetCurrentWeatherAsync(string city)
         {
             await Task.Delay(1000);
 
@@ -38,6 +38,11 @@ namespace WeatherApp.Services
             };
 
             return httpResponse;
+        }*/
+
+        public Task<HttpResponseMessage> GetCurrentWeatherAsync(string city, string appid = "000000", string units = "metric")
+        {
+            throw new NotImplementedException();
         }
     }
 }

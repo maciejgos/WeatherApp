@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using WeatherApp.Exceptions;
 using WeatherApp.Models;
@@ -13,7 +14,11 @@ namespace WeatherApp.Tests
         public async Task CanGetCurrentWeatherForLocation()
         {
             // Arrange
-            IApiManager apiManager = new ApiManager(new MockWeatherService());
+            HttpClient httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(AppSettings.WeatherEndpoint)
+            };
+            IApiManager apiManager = new ApiManager(httpClient);
 
             // Act
             OperationResult<WeatherModel> operationResult = await apiManager.GetCurrentWeatherAsync(city: "Pruszków");
@@ -28,7 +33,11 @@ namespace WeatherApp.Tests
         public async Task ThrowsConnectivityExceptionIfNoNetwork()
         {
             // Arrange
-            IApiManager apiManager = new ApiManager(new MockWeatherService());
+            HttpClient httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(AppSettings.WeatherEndpoint)
+            };
+            IApiManager apiManager = new ApiManager(httpClient);
 
             // Act
             OperationResult<WeatherModel> operationResult = await apiManager.GetCurrentWeatherAsync(city: "NetworkConnectivity");

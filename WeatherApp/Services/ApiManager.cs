@@ -12,14 +12,9 @@ namespace WeatherApp.Services
     {
         readonly IWeatherService weatherService;
 
-        public ApiManager()
+        public ApiManager(HttpClient httpClient)
         {
-            this.weatherService = RestService.For<IWeatherService>(AppSettings.WeatherApiKey);
-        }
-
-        public ApiManager(IWeatherService weatherService)
-        {
-            this.weatherService = weatherService;
+            this.weatherService = RestService.For<IWeatherService>(httpClient);
         }
 
         public async Task<OperationResult<WeatherModel>> GetCurrentWeatherAsync(string city)
@@ -28,7 +23,7 @@ namespace WeatherApp.Services
 
             try
             {
-                var response = await weatherService.GetCurrentWeatherAsync(city);
+                var response = await weatherService.GetCurrentWeatherAsync(city: city, appid: AppSettings.WeatherApiKey, units: AppSettings.WeatherUnits);
                 response.EnsureSuccessStatusCode();
 
                 if (response.IsSuccessStatusCode)
