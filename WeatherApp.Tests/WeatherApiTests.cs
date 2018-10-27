@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using RichardSzalay.MockHttp;
 using WeatherApp.Exceptions;
 using WeatherApp.Models;
 using WeatherApp.Services;
@@ -14,10 +16,30 @@ namespace WeatherApp.Tests
         public async Task CanGetCurrentWeatherForLocation()
         {
             // Arrange
-            HttpClient httpClient = new HttpClient
+            HttpClient httpClient = null;
+            FileStream fileStream = null;
+            if (AppSettings.UseMocks)
             {
-                BaseAddress = new Uri(AppSettings.WeatherEndpoint)
-            };
+                MockHttpMessageHandler mockHttpMessage = new MockHttpMessageHandler();
+
+                fileStream = new FileStream("test.json", FileMode.Open);
+                mockHttpMessage
+                    .When("https://api.openweathermap.org/data/2.5/weather?q=Pruszków&appid=000000&units=metric")
+                    .Respond("application/json", fileStream);
+
+                httpClient = new HttpClient(mockHttpMessage)
+                {
+                    BaseAddress = new Uri(AppSettings.WeatherEndpoint)
+                };
+            }
+            else
+            {
+                httpClient = new HttpClient
+                {
+                    BaseAddress = new Uri(AppSettings.WeatherEndpoint)
+                };
+            }
+
             IApiManager apiManager = new ApiManager(httpClient);
 
             // Act
@@ -27,6 +49,9 @@ namespace WeatherApp.Tests
             Assert.True(operationResult.Success);
             Assert.NotNull(operationResult.Result);
             Assert.Equal("Pruszków", operationResult.Result.Name);
+
+            // Cleanup
+            fileStream?.Dispose();
         }
 
         [Fact]
@@ -37,6 +62,7 @@ namespace WeatherApp.Tests
             {
                 BaseAddress = new Uri(AppSettings.WeatherEndpoint)
             };
+
             IApiManager apiManager = new ApiManager(httpClient);
 
             // Act

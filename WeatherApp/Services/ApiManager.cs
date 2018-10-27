@@ -23,7 +23,19 @@ namespace WeatherApp.Services
 
             try
             {
-                var response = await weatherService.GetCurrentWeatherAsync(city: city, appid: AppSettings.WeatherApiKey, units: AppSettings.WeatherUnits);
+                if (AppSettings.UseMocks)
+                {
+                    if (city == "NetworkConnectivity")
+                    {
+                        throw new ConnectivityException();
+                    }
+                }
+                else if(Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Local)
+                {
+                    throw new ConnectivityException();
+                }
+
+                var response = await weatherService.GetCurrentWeatherAsync(city: city, appid: AppSettings.UseMocks ? "000000" : AppSettings.WeatherApiKey, units: AppSettings.WeatherUnits);
                 response.EnsureSuccessStatusCode();
 
                 if (response.IsSuccessStatusCode)
