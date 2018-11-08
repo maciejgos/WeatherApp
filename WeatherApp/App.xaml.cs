@@ -14,12 +14,12 @@ namespace WeatherApp
             InitializeComponent();
             BuildDependencies();
 
-            MainPage = new MainView();
+            MainPage = new CurrentPage();
         }
 
         public void BuildDependencies()
         {
-            Locator.Instance.Build();
+            //Locator.Instance.Build();
         }
     }
 }

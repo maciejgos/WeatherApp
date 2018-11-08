@@ -152,6 +152,8 @@
     <ImageAsset Include="Assets.xcassets\Settings.imageset\baseline_settings_applications_black_24pt_1x.png" />
     <ImageAsset Include="Assets.xcassets\Settings.imageset\baseline_settings_applications_black_24pt_2x.png" />
     <ImageAsset Include="Assets.xcassets\Settings.imageset\baseline_settings_applications_black_24pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\BackgroundAutumn.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\BackgroundAutumn.imageset\las-jesienia-tapeta-1080x1920-311_165.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -174,5 +176,6 @@
     <Folder Include="Assets.xcassets\Local.imageset\" />
     <Folder Include="Assets.xcassets\Favorites.imageset\" />
     <Folder Include="Assets.xcassets\Settings.imageset\" />
+    <Folder Include="Assets.xcassets\BackgroundAutumn.imageset\" />
   </ItemGroup>
 </Project>

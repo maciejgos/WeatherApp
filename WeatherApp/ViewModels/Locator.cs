@@ -14,8 +14,8 @@ namespace WeatherApp.ViewModels
         {
             containerBuilder = new ContainerBuilder();
 
-            containerBuilder.RegisterType<ApiManager>().As<IApiManager>();
-            containerBuilder.RegisterType<LocalWeatherViewModel>();
+            //containerBuilder.RegisterType<ApiManager>().As<IApiManager>();
+            //containerBuilder.RegisterType<LocalWeatherViewModel>();
         }
 
         public T Resolve<T>() => container.Resolve<T>();
