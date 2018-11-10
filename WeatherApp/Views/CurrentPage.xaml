@@ -10,7 +10,7 @@
             
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             
@@ -28,8 +28,43 @@
                            Style="{DynamicResource Key=DefaultLabel}"/>                    
                 </StackLayout>
             </StackLayout>
-            <BoxView Grid.Row="1" BackgroundColor="Purple" />
-            <BoxView Grid.Row="2" BackgroundColor="Olive" />
+            <BoxView Grid.Row="1" 
+                     HeightRequest="1"
+                     Color="Black"
+                     Margin="0, 0, 0, 20"/>            
+            <ListView Grid.Row="2"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding WeeklyForecast}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid Margin="10, 10, 10, 0"
+                                      ColumnSpacing="0">
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Text="{Binding Day}"
+                                           Grid.Column="0"
+                                           FontSize="Large" />
+                                    <Label Text="{Binding Temperature}" 
+                                           Grid.Column="1"
+                                           FontSize="Large"
+                                           HorizontalTextAlignment="End" />
+                                    
+                                </Grid>
+                                <BoxView HeightRequest="1"
+                                         Color="Silver"
+                                         Margin="10, 0, 10, 0" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             
         </Grid>
         
