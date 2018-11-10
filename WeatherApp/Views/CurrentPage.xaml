@@ -15,18 +15,16 @@
             <StackLayout BackgroundColor="Red"
                          Padding="40">
                 <Label Text="Pruszków"
-                       FontSize="24"
-                       HorizontalTextAlignment="Center" />
+                       Style="{DynamicResource Key=CityLabel}" />
                 
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
                     <Label Text="20"
-                           FontSize="86"
-                           FontAttributes="Bold"/>
+                           Style="{DynamicResource Key=TemperatureLabel}"/>
                     <Label Text="o"
-                           FontSize="24"/>
+                           Style="{DynamicResource Key=DefaultLabel}"/>
                     <Label Text="C"
-                           FontSize="24"/>                    
+                           Style="{DynamicResource Key=DefaultLabel}"/>                    
                 </StackLayout>
             </StackLayout>
             <BoxView Grid.Row="1" BackgroundColor="Purple" />
