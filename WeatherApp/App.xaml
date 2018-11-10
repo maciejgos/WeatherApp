@@ -3,5 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <StaticResource x:Key="DefaultFontSize">24</StaticResource>
+            
+            <Style x:Key="TemperatureLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="86" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="CityLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
