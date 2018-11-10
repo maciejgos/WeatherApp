@@ -12,18 +12,17 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             
-            <StackLayout BackgroundColor="Red"
-                         Padding="40">
-                <Label Text="Pruszków"
+            <StackLayout Padding="40">
+                <Label Text="{Binding City}"
                        Style="{DynamicResource Key=CityLabel}" />
                 
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Label Text="20"
+                    <Label Text="{Binding Temperature}"
                            Style="{DynamicResource Key=TemperatureLabel}"/>
                     <Label Text="o"
                            Style="{DynamicResource Key=DefaultLabel}"/>
-                    <Label Text="C"
+                    <Label Text="{Binding Unit}"
                            Style="{DynamicResource Key=DefaultLabel}"/>                    
                 </StackLayout>
             </StackLayout>
