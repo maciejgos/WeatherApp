@@ -12,7 +12,23 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             
-            <BoxView Grid.Row="0" BackgroundColor="Red" />
+            <StackLayout BackgroundColor="Red"
+                         Padding="40">
+                <Label Text="Pruszków"
+                       FontSize="24"
+                       HorizontalTextAlignment="Center" />
+                
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Label Text="20"
+                           FontSize="86"
+                           FontAttributes="Bold"/>
+                    <Label Text="o"
+                           FontSize="24"/>
+                    <Label Text="C"
+                           FontSize="24"/>                    
+                </StackLayout>
+            </StackLayout>
             <BoxView Grid.Row="1" BackgroundColor="Purple" />
             <BoxView Grid.Row="2" BackgroundColor="Olive" />
             

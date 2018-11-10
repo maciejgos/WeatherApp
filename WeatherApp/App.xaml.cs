@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using WeatherApp.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,7 +11,7 @@ namespace WeatherApp
         {
             InitializeComponent();
 
-            //MainPage = new CurrentPage();
+            MainPage = new CurrentPage();
         }
     }
 }
