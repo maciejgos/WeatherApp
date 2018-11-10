@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherApp.Views.CurrentPage">
+             xmlns:design="clr-namespace:WeatherApp.ViewModels.Base"
+             x:Class="WeatherApp.Views.CurrentPage"
+             BindingContext="{Static design:ViewModelLocator.CurrentViewModel}">
     <ContentPage.Content>
         
         <Grid RowSpacing="0">
@@ -12,7 +14,7 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             
-            <StackLayout Padding="40">
+            <StackLayout Padding="50">
                 <Label Text="{Binding City}"
                        Style="{DynamicResource Key=CityLabel}" />
                 

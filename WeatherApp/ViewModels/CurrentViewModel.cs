@@ -2,8 +2,8 @@ namespace WeatherApp.ViewModels
 {
     public class CurrentViewModel
     {
-        public int Temperature { get; set; } = 20;
-        public string City { get; set; } = "Pruszków";
-        public string Unit { get; set; } = "C";
+        public int Temperature { get; set; }
+        public string City { get; set; }
+        public string Unit { get; set; }
     }
 }

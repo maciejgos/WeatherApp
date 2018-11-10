@@ -13,5 +13,13 @@ namespace WeatherApp
 
             MainPage = new CurrentPage();
         }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            
+            // Set app to run on device mode.
+            AppSettings.IsInDesignMode = false;
+        }
     }
 }
