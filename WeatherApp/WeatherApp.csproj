@@ -11,19 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
-    <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="Refit" Version="4.6.48" />
-    <PackageReference Include="Xamarin.Essentials" Version="0.11.0-preview" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Services\" />
-    <Folder Include="Models\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="ViewModels\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Favorites\Views\FavoritesPage.xaml.cs" />
