@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": 20.8,
+    "lat": 52.16
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 11,
+    "pressure": 1020,
+    "humidity": 87,
+    "temp_min": 11,
+    "temp_max": 11
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.6,
+    "deg": 210
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1542130200,
+  "sys": {
+    "type": 1,
+    "id": 5374,
+    "message": 0.0039,
+    "country": "PL",
+    "sunrise": 1542088482,
+    "sunset": 1542120419
+  },
+  "id": 7531704,
+  "name": "Pruszków",
+  "cod": 200
+}
