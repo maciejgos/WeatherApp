@@ -18,7 +18,6 @@
     <Compile Remove="Features\Favorites\Views\FavoritesPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services" />
     <Folder Include="Views" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
