@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MvvmHelpers;
 
 namespace WeatherApp.ViewModels
@@ -14,6 +15,11 @@ namespace WeatherApp.ViewModels
         public string City { get => _city; set => SetProperty(ref _city, value); }
         public string Unit { get => _unit; set => SetProperty(ref _unit, value); }
         public IEnumerable<ForecastLineViewModel> WeeklyForecast { get => _weeklyForecast; set => SetProperty(ref _weeklyForecast, value); }
+
+        public async Task InitializeAsync()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public class ForecastLineViewModel : BaseViewModel
