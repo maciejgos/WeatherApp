@@ -17,7 +17,7 @@ namespace WeatherApp.ApiTests
         public async Task Can_Fetch_Weather_For_Current_Location(string city)
         {
             // Arrange
-            ApiService service = null;
+            IApiService service = null;
             if (AppSettings.UseMocks)
             {
                 var mockHttp = new MockHttpMessageHandler();
