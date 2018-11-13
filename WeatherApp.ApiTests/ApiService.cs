@@ -6,7 +6,7 @@ namespace WeatherApp.ApiTests
     public class ApiService
     {
         [Fact]
-        public void Test1()
+        public void Can_Fetch_Weather_For_Current_Location()
         {
         }
     }
