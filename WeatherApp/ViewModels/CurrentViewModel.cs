@@ -37,10 +37,10 @@ namespace WeatherApp.ViewModels
             MapModelToViewModel(weatherModel);
         }
 
-        private void MapModelToViewModel(WeatherModel weatherModel)
+        private void MapModelToViewModel(WeatherModel model)
         {
-            City = weatherModel.Name;
-            Temperature = weatherModel.Main.Temp;
+            City = model.Name;
+            Temperature = model.Main.Temp;
             Unit = "C";
         }
     }
