@@ -1,11 +1,17 @@
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using MvvmHelpers;
+using WeatherApp.Models;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
     public class CurrentViewModel : BaseViewModel
     {
+        private readonly IApiService _service;
+        
         private int _temperature;
         private string _city;
         private string _unit;
@@ -16,9 +22,26 @@ namespace WeatherApp.ViewModels
         public string Unit { get => _unit; set => SetProperty(ref _unit, value); }
         public IEnumerable<ForecastLineViewModel> WeeklyForecast { get => _weeklyForecast; set => SetProperty(ref _weeklyForecast, value); }
 
+        public CurrentViewModel()
+        {
+            var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(AppSettings.WeatherApiEndpoint)
+            };
+            _service = new ApiService(httpClient);
+        }
+
         public async Task InitializeAsync()
         {
-            throw new System.NotImplementedException();
+            var weatherModel = await _service.GetCurrentWeatherAsync("Pruszków");
+            MapModelToViewModel(weatherModel);
+        }
+
+        private void MapModelToViewModel(WeatherModel weatherModel)
+        {
+            City = weatherModel.Name;
+            Temperature = weatherModel.Main.Temp;
+            Unit = "C";
         }
     }
 
