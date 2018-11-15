@@ -10,7 +10,7 @@ namespace WeatherApp.ViewModels.Base
 
         public BaseViewModel()
         {
-            var httpClient = new HttpClient
+            var httpClient = new HttpClient(new HttpClientHandler())
             {
                 BaseAddress = new Uri(AppSettings.WeatherApiEndpoint)
             };
