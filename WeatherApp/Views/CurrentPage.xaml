@@ -20,7 +20,7 @@
                 
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Label Text="{Binding Temperature}"
+                    <Label Text="{Binding Temperature, StringFormat='{0:F1}'}"
                            Style="{DynamicResource Key=TemperatureLabel}"/>
                     <Label Text="o"
                            Style="{DynamicResource Key=DefaultLabel}"/>

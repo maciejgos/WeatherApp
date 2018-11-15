@@ -7,7 +7,7 @@ namespace WeatherApp.ViewModels.Base
         private static CurrentViewModel _currentViewModel;
 
         public static CurrentViewModel CurrentViewModel => AppSettings.IsInDesignMode
-            ? new CurrentViewModel {City = "Pruszków", Temperature = 20, Unit = "C", WeeklyForecast = DesignTimeData.WeeklyForecase}
+            ? new CurrentViewModel {City = "Pruszków", Temperature = 20.5, Unit = "C", WeeklyForecast = DesignTimeData.WeeklyForecase}
             : _currentViewModel = new CurrentViewModel();
     }
 }
